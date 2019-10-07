@@ -9,6 +9,7 @@ import axios from "axios";
 import '../styles/index.scss';
 import "leaflet/dist/leaflet.css";
 
+import { ownLocationMarker } from "./markers";
 
 /**
  * Map initialization
@@ -31,18 +32,11 @@ L.tileLayer('https://api.mapbox.com/styles/v1/alingenomen/cjp9uuri70bd42so6ig01u
 // Functionality
 ////////////////
 
-const myIcon = L.icon({
-    iconUrl: 'public/img/marker.png',
-    iconSize: [32,37],
-    iconAnchor: [16,37],
-    popupAnchor:[-3,-76]
-});
-
 // Get all the dog toilets in Ghent & create a marker for each one
 axios.get('https://datatank.stad.gent/4/infrastructuur/hondenvoorzieningen.geojson')
     .then(res => {
         res.data.coordinates.forEach(coordinate => {
-            L.marker([coordinate[1], coordinate[0]], {icon:myIcon}).addTo(map);
+            L.marker([coordinate[1], coordinate[0]], {icon:ownLocationMarker}).addTo(map);
         });
     });
 
