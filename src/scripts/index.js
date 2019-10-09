@@ -46,11 +46,14 @@ axios.get('https://datatank.stad.gent/4/infrastructuur/hondenvoorzieningen.geojs
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
 
+        // Fetch the latitude & longitude out of the coords
+        const { latitude, longitude } = position.coords;
+
         // Add a marker at the user location
-        L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+        L.marker([latitude, longitude]).addTo(map);
 
         // Center map on user location
-        map.panTo(new L.LatLng(position.coords.latitude, position.coords.longitude));
+        map.panTo(new L.LatLng(latitude, longitude));
     });
 }
 
