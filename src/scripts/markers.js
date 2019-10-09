@@ -1,4 +1,10 @@
+// Imports
+//////////
+
 import L from "leaflet";
+
+// Exports
+//////////
 
 export const dogLocationMarker = L.icon({
     iconUrl: 'public/img/marker.png',
