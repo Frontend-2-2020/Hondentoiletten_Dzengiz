@@ -49,6 +49,7 @@
     "@babel/polyfill": "^7.6.0",
     "axios": "^0.19.0",
     "core-js": "^3.2.1",
+    "geolib": "^3.0.4",
     "google-maps": "^3.3.0",
     "leaflet": "^1.5.1"
   }
