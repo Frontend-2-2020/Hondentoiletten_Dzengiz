@@ -1,12 +1,48 @@
-$body-color: slateblue;
+* {
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  color: $body-color;
-  font-family: sans-serif;
+  font-family: 'Pacifico', cursive;
+}
+
+#locations {
+  position: absolute;
+  z-index: 9000;
+  width: 350px;
+  background-color: rgba(0, 0, 0, 0.50);
+}
+
+#mydivheader {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: rgba(100, 100, 100, 0.5);
+  color: #fff;
 }
 
 #map {
-  height: 450px;
-  width: 80vw;
-  margin: auto;
+    width: 100%;
+    height: 100vh;
+}
+
+h3 {
+  color: rgb(170, 170, 170);
+}
+
+h4 {
+  color: rgb(100, 100, 100);
+}
+
+#locationInfo {
+  padding: 1em;
+  p {
+    font-size: small;
+    color: rgb(50, 50, 50);
+  }
+}
+
+.infoItem {
+  margin-bottom: 1em;
 }
