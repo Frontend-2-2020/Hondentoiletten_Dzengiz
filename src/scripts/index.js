@@ -36,7 +36,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/alingenomen/cjp9uuri70bd42so6ig01u
 // Variables
 let toiletCoordinates = [];
 let toilets = [];
-let nearestToilets = [];
 
 
 /**
@@ -47,7 +46,7 @@ let nearestToilets = [];
 const toggleColor = (index, color) => {
     const markerToUse = (color === 'green')
         ? greenMarker : orangeMarker;
-    nearestToilets[index].setIcon(markerToUse);
+    toilets[index].marker.setIcon(markerToUse);
 };
 
 // Functionality to locate the user & pan
@@ -114,13 +113,12 @@ const generateMarkersAndHTML = () => {
         locationInfoDiv.appendChild(infoDiv);
 
         // Add a marker & add it to an array of the nearest toilets
-        const newMarker = L.marker([toilets[i].coordinates[1], toilets[i].coordinates[0]], {icon: greenMarker}).addTo(map);
-        nearestToilets.push(newMarker);
+        toilets[i].marker = L.marker([toilets[i].coordinates[1], toilets[i].coordinates[0]], {icon: greenMarker}).addTo(map);
     }
 
     // Generate violet markers for the rest
     for (let i = 5; i < toilets.length; i++) {
-        L.marker([toilets[i].coordinates[1], toilets[i].coordinates[0]], {icon: violetMarker}).addTo(map);
+        toilets[i].marker = L.marker([toilets[i].coordinates[1], toilets[i].coordinates[0]], {icon: violetMarker}).addTo(map);
     }
 };
 
